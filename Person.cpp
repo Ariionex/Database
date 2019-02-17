@@ -1,26 +1,25 @@
-#pragma once
-#include <string>
+#include "Person.hpp"
 
 using namespace std;
 
-enum class Gender : char {male='m', female='f'};
+Person::Person(const string & name,
+               const string & lastname,
+               const string & address,
+               const string & pesel,
+               Gender gender)
+    : name_(name)
+    , lastname_(lastname)
+    , address_(address)
+    , pesel_(pesel)
+    , gender_(gender)
+{}
 
-class Person
+string Person::getLastname() const
 {
-public:
-    Person(const string & name,
-           const string & lastname,
-           const string & address,
-           const string & pesel,
-           const Gender gender);
-        string getLastname() const;
-        string getPesel() const;
-        virtual int getIndex() const;
+    return lastname_;
+}
 
-private:
-    string name_;
-    string lastname_;
-    string address_;
-    string pesel_;
-    Gender gender_;
-};
+string Person::getPesel() const
+{
+    return pesel_;
+}

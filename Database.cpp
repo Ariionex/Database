@@ -1,7 +1,7 @@
 #include "Database.hpp"
 #include "Student.hpp"
 #include <algorithm>
-
+#include <iostream>
 using namespace std;
 
 void Database::addStudent(Person* person)
@@ -39,4 +39,27 @@ Person* Database::findByPesel(const string & pesel)
     {
          return i->getPesel() == pesel;
     });
+}
+void Database::show()
+{
+    for_each(allPeople_.begin(),allPeople_.end(),[](auto i){cout << i->show() << endl;});
+}
+
+void Database::sortByPesel()
+{
+    sort(allPeople_.begin(),allPeople_.end(),[](Person *a, Person *b){return a->getPesel() < b->getPesel();});
+}
+
+void Database::sortByLastname()
+{
+    sort(allPeople_.begin(),allPeople_.end(),[](Person *a, Person *b){return a->getLastname() < b->getLastname();});
+}
+
+void Database::removeByPesel(const string & pesel)//???????????????????
+{
+    auto human = remove_if(allPeople_.begin(), allPeople_.end(),[pesel](const auto & i)
+    {
+        return i->getPesel() == pesel;
+    });
+    allPeople_.erase(human);
 }

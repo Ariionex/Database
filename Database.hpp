@@ -14,6 +14,10 @@ public:
     void removeStudent(int index);
     allPeople findByLastname(const string & lastname);
     Person* findByPesel(const string & pesel);
+    void show();
+    void sortByPesel();
+    void sortByLastname();
+    void removeByPesel(const string & pesel);
 
 private:
     allPeople allPeople_;

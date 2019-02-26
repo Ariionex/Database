@@ -15,7 +15,9 @@ public:
            const Gender gender);
         string getLastname() const;
         string getPesel() const;
+        string show() const;
         virtual int getIndex() const;
+        virtual int getSalary() const;
 
 private:
     string name_;
@@ -24,3 +26,4 @@ private:
     string pesel_;
     Gender gender_;
 };
+

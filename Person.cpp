@@ -23,3 +23,9 @@ string Person::getPesel() const
 {
     return pesel_;
 }
+string Person::show() const
+{
+    return name_ + " " + lastname_ + ", PESEL: " + pesel_ + ", adres: " + address_;
+}
+int Person::getIndex() const{}
+int Person::getSalary() const{}

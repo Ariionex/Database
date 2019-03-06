@@ -18,6 +18,7 @@ public:
     void sortByPesel();
     void sortByLastname();
     void removeByPesel(const string & pesel);
+    void modifyAddressByPesel(const string & pesel, const string & newAddress);
 
 private:
     allPeople allPeople_;

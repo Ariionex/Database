@@ -63,3 +63,8 @@ void Database::removeByPesel(const string & pesel)//???????????????????
     });
     allPeople_.erase(human);
 }
+void Database::modifyAddressByPesel(const string & pesel, const string & newAddress)
+{
+    auto i = findByPesel(pesel);
+    i->setAddress(newAddress);
+}

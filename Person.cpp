@@ -13,7 +13,6 @@ Person::Person(const string & name,
     , pesel_(pesel)
     , gender_(gender)
 {}
-
 string Person::getLastname() const
 {
     return lastname_;
@@ -22,6 +21,18 @@ string Person::getLastname() const
 string Person::getPesel() const
 {
     return pesel_;
+}
+string Person::getName() const
+{
+    return name_;
+}
+string Person::getAddress() const
+{
+    return address_;
+}
+Gender Person::getGender() const
+{
+    return gender_;
 }
 string Person::show() const
 {

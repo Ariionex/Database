@@ -14,10 +14,14 @@ public:
            const string & pesel,
            const Gender gender);
         string getLastname() const;
+        string getName() const;
+        string getAddress() const;
+        Gender getGender() const;
         string getPesel() const;
         string show() const;
         virtual int getIndex() const;
         virtual int getSalary() const;
+        void setAddress(const string & newAddress);
 
 private:
     string name_;

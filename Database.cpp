@@ -68,3 +68,55 @@ void Database::modifyAddressByPesel(const string & pesel, const string & newAddr
     auto i = findByPesel(pesel);
     i->setAddress(newAddress);
 }
+void Database::save(string fileName) const
+{
+    ofstream ofile(fileName);
+
+    for (auto element : allPeople_)
+    {
+
+        ofile << element->getName() << endl;
+        ofile << element->getLastname() << endl;
+        ofile << element->getPesel() << endl;
+        ofile << static_cast<char>(element->getGender()) << endl;
+        ofile << element->getAddress() << endl;
+        ofile << element->getIndex() << endl;
+    }
+}
+void Database::load(string fileName)
+{
+    ifstream ifile(fileName);
+
+    if (ifile.good()==false)
+    {
+        cout<<"Nie mozna otworzyc pliku"<<endl;
+        exit(0);
+    }
+
+    string line;
+    int line_no=1;
+
+    while (getline(ifile,line))
+    {
+        string temp_name = "NULL";
+        string temp_surname = "NULL";
+        string temp_PESEL = "NULL";
+        string temp_sex = "NULL";
+        string temp_address = "NULL";
+        string temp_no_of_grade_book = "NULL";
+
+        switch(line_no)
+        {
+            case 1: temp_name=line;
+            case 2: temp_surname=line;
+            case 3: temp_PESEL=line;
+            case 4: temp_sex=line;
+            case 5: temp_address=line;
+            case 6: temp_no_of_grade_book=line;
+        }
+        if(line_no==7)
+            line_no=1;
+        else
+            line_no++;
+    }
+}
